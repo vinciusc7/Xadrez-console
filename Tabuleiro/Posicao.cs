@@ -8,20 +8,20 @@ namespace tabuleiro
 {
      class Posicao
     {
-        public int Linha { get; set; }
-        public int Coluna { get; set; }
+        public int linha { get; set; }
+        public int coluna { get; set; }
 
         public Posicao () { }
-        public Posicao (int Linha, int Coluna)
+        public Posicao (int linha, int coluna)
         {
-            this.Linha = Linha; 
-            this.Coluna = Coluna;
+            this.linha = linha; 
+            this.coluna = coluna;
         }
         public override string ToString()
         {
-            return Linha
+            return linha
                 + ", "
-                + Coluna;
+                + coluna;
         }
     }
 }
