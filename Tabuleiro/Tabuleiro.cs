@@ -4,18 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Tabuleiro
+namespace tabuleiro
 {
      class Tabuleiro
     {
         public int linhas { get; set; }
         public int colunas { get; set; }
-        public Peca[,] pecas;
+        private Peca[,] pecas;
         public Tabuleiro (int linhas, int colunas)
         {
             this.linhas = linhas;
             this.colunas = colunas;
             pecas = new Peca[ linhas, colunas ];
+        }
+        public Peca peca (int linhas, int colunas)
+        {
+            return pecas[ linhas, colunas ];
         }
     }
 }

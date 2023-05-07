@@ -1,11 +1,13 @@
 ﻿using System;
-using Tabuleiro;
-    class Program
+using tabuleiro;
+using Xadrez_console;
+
+class Program
+{
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-        Tabuleiro.Tabuleiro tab = new Tabuleiro.Tabuleiro(8, 8);
-        Console.WriteLine(tab);
-        
+        Tabuleiro tab = new Tabuleiro(8, 8);
+
+        Tela.imprimirTabuleiro(tab);
     }
-    }
+}
