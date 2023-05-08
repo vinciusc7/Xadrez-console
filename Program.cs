@@ -6,17 +6,25 @@ class Program
 {
     static void Main(string[] args)
     {
-        try
+
+        PartidaDeXadrez partida = new PartidaDeXadrez();
+
+        while (!partida.terminada)
         {
-            PartidaDeXadrez partida = new PartidaDeXadrez();
-            
-            while (!partida.terminada) {
+            try
+            {
                 Console.Clear();
                 Tela.imprimirTabuleiro(partida.tab);
+                Console.WriteLine();
+                Console.Write("Turno: " + partida.turno);
+
+                Console.WriteLine();
+                Console.WriteLine("Aguardando jogada: " + partida.jogadorAtual);
 
                 Console.WriteLine();
                 Console.Write("origem: ");
                 Posicao origem = Tela.lerPosicaoXadrez().toPosicao();
+                partida.validarPosicaoDeOrigem(origem);
 
                 bool[,] posicoesPossiveis = partida.tab.peca(origem).movimentosPossiveis();
 
@@ -26,13 +34,14 @@ class Program
                 Console.WriteLine();
                 Console.Write("destino: ");
                 Posicao destino = Tela.lerPosicaoXadrez().toPosicao();
-
-                partida.executaMovimento(origem, destino);
+                partida.validarPosicaoDeDestino(origem, destino);
+                partida.realizaJogada(origem, destino);
             }
-        }
-        catch (TabuleiroException e)
-        {
-            Console.WriteLine(e.Message);
-        }
+            catch (TabuleiroException e)
+            {
+                Console.WriteLine(e.Message);
+                Console.ReadLine();
+            }
+         }
     }
 }
